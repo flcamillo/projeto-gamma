@@ -30,7 +30,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> buscarPorNomeESenha(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> buscarPorEmailESenha(@RequestBody Usuario usuario) {
         Usuario login = servico.buscarUsuarioPorEmailOuRACF(usuario);
         if (login == null) {
             return ResponseEntity.notFound().build();
