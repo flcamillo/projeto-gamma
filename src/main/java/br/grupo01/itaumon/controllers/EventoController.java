@@ -32,9 +32,18 @@ public class EventoController {
         return ResponseEntity.ok(evento);
     }
 
-    @PostMapping("/evento/entre")
-    public ResponseEntity<List<Evento>> buscarEntreDatas(@RequestParam("inicio") @DateTimeFormat(pattern = "dd/MM/yyyy") Date inicio, @RequestParam("termino") @DateTimeFormat(pattern = "dd/MM/yyyy") Date termino) {
+    @PostMapping("/evento/equipamento/entre")
+    public ResponseEntity<List<Evento>> buscarEntreDatas(@RequestParam("inicio") @DateTimeFormat(pattern = "yyyy-MM-dd") Date inicio, @RequestParam("termino") @DateTimeFormat(pattern = "yyyy-MM-dd") Date termino) {
         List<Evento> eventos = servico.buscarEventosEntreDatas(inicio, termino);
+        if (eventos == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(eventos);
+    }
+
+    @PostMapping("/evento/alarme/entre")
+    public ResponseEntity<List<?>> buscarQuantidadePorAlarmeEntreDatas(@RequestParam("inicio") @DateTimeFormat(pattern = "yyyy-MM-dd") Date inicio, @RequestParam("termino") @DateTimeFormat(pattern = "yyyy-MM-dd") Date termino) {
+        List<?> eventos = servico.buscarEventosPorAlarmeEntreDatas(inicio, termino);
         if (eventos == null) {
             return ResponseEntity.notFound().build();
         }

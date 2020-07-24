@@ -9,5 +9,6 @@ public interface IEventoService {
     
     public Evento buscarEventoPorId(int id);
     public List<Evento> buscarEventosEntreDatas(Date inicio, Date termino);
+    public List<?> buscarEventosPorAlarmeEntreDatas(Date inicio, Date termino);
 
 }

@@ -24,5 +24,10 @@ public class EventoServiceImp implements IEventoService {
     public List<Evento> buscarEventosEntreDatas(Date inicio, Date termino) {
         return repo.findAllByDataBetween(inicio, termino);
     }
-    
+
+    @Override
+    public List<?> buscarEventosPorAlarmeEntreDatas(Date inicio, Date termino) {
+        return repo.buscarEventosPorAlarmeEntreDatas(inicio, termino);
+    }
+
 }

@@ -5,6 +5,6 @@ import br.grupo01.itaumon.models.Usuario;
 public interface IUsuarioService {
     
     public Usuario buscarUsuarioPorId(int id);
-    public Usuario buscarUsuarioPorNomeOuRACF(Usuario usuario);
+    public Usuario buscarUsuarioPorEmailOuRACF(Usuario usuario);
 
 }

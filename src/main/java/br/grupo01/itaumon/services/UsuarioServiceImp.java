@@ -18,9 +18,9 @@ public class UsuarioServiceImp implements IUsuarioService {
     }
 
     @Override
-    public Usuario buscarUsuarioPorNomeOuRACF(Usuario usuario) {
-        if (!usuario.getNome().equals("")) {
-            return repo.findByNomeAndSenha(usuario.getNome(), usuario.getSenha());
+    public Usuario buscarUsuarioPorEmailOuRACF(Usuario usuario) {
+        if (usuario.getEmail() != null) {
+            return repo.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
         }
         return repo.findByRacfAndSenha(usuario.getRacf(), usuario.getSenha());
     }
